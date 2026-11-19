@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>!?AŞURE!?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Grup Sohbet Odası -->
+<div id="grupSohbetEkrani">
+    <div class="sohbet-ust">
+        <button type="button" class="sohbet-geri" onclick="grupSohbetiKapat()">←</button>
+        <div class="sohbet-avatar" id="sohbetAvatar">G</div>
+        <div class="sohbet-bilgi">
+            <div id="sohbetBaslik">Grup</div>
+            <small>grup sohbeti</small>
+        </div>
+    </div>
+
+    <div id="sohbetMesajlar"></div>
+
+    <div class="sohbet-alt">
+        <input type="text" id="sohbetInput" placeholder="Mesaj" autocomplete="off">
+        <button type="button" class="sohbet-gonder" onclick="sohbetMesajGonder()">➤</button>
+    </div>
+</div>
+
+    <!-- Sağ Üst Ayar Butonu -->
+    <button class="ayar-btn" onclick="paneliAckapa()">⚙️</button>
+
+    <!-- Sağdan Açılan Ayar Paneli -->
+    <div id="ayarPaneli" class="ayar-paneli">
+        <button class="kapat-btn" onclick="paneliAckapa()">×</button>
+        <center>
+            <p class="hl2"><small><u><span id="lbl-u">sürüm</span> 1.0</u></small></p>
+        </center>
+        <hr style="border: 1px solid black;" />
+
+        <div class="ayar-tus-kapsayici">
+            <div>
+                <button type="button" class="akordeon-btn btn-lacivert" onclick="akordeonAcKapa('dilSekmesi')">
+                    <span id="lbl-dil">Dil</span> ▾
+                </button>
+                <div id="dilSekmesi" class="akordeon-icerik">
+                    <div class="renk-secenekleri">
+                        <button style="background: #333; color: white;" onclick="dilDegistir('tr')">Türkçe 🇹🇷</button>
+                        <button style="background: #333; color: white;" onclick="dilDegistir('en')">English 🇬🇧</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="akordeon-btn btn-yesil" onclick="akordeonAcKapa('renkSekmesi')">
+                    <span id="lbl-renk">Arka Plan Rengi:</span> ▾
+                </button>
+                <div id="renkSekmesi" class="akordeon-icerik">
+                    <div class="renk-secenekleri">
+                        <button style="background: red; color: white;" onclick="renkDegistir('red')">Kırmızı</button>
+                        <button style="background: gray; color: white;" onclick="renkDegistir('gray')">Gri</button>
+                        <button style="background: white; color: black; border: 1px solid #ccc;" onclick="renkDegistir('white')">Beyaz</button>
+                        <button style="background: blue; color: white;" onclick="renkDegistir('blue')">Mavi</button>
+                        <button style="background: green; color: white;" onclick="renkDegistir('green')">Yeşil</button>
+                        <button style="background: pink; color: black;" onclick="renkDegistir('pink')">Pembe</button>
+                        <button style="background: purple; color: white;" onclick="renkDegistir('purple')">Mor</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="akordeon-btn btn-lacivert" onclick="akordeonAcKapa('arsivSekmesi')">
+                    Aşurenin Arşivi ▾
+                </button>
+                <div id="arsivSekmesi" class="akordeon-icerik">
+                    <div class="arsiv-tum-liste-kapsayici">
+                        
+                        <!-- 0.01 Sürümü -->
+                        <div class="arsiv-oge">
+                            <img src="aşure 0.01 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.01">
+                            <p>Evet aşure'nin en ilkel sürümüdür hiç birşey yok.Şu ucube logoya bak hele</p>
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.05 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.05 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.05">
+                                <img src="aşure 0.05 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.05 - 2">
+                            </div>
+                            <p>evet aşure en azından biraz daha iyi.Devasa bir arama tuşu var  ve boktan hiç bir boks yaramayan bir ayar.png var.seçme özelliği var. renkler değişmiş ve her sürümde sürüm rengi değişiyor</p>
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.07 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.07 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.07">
+                                <img src="aşure 0.07 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.07 - 2">
+                            </div>
+                            <p>evet artık arama tuşu küçültülmüş bokyan ayarlar tuşu hala var üste yapımcıların profil fotosu var  renkler yene değişmiş arka blan rengi değişmiş</p>
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.10 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.10 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.10">
+                                <img src="aşure 0.10 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.10 - 2">
+                            </div>
+                            <p>SONUNDA güzel çalışan adam gibi adam bir ayarlar tuşu var renkler değişmiş</p> 
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.15 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.15 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.15">
+                                <img src="aşure 0.15 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.15 - 2">
+                            </div>
+                            <p>ayarlara dil , renk değiştirme ve yapımcıların gelmesi gereken yere gelmiş ayarlara arama tuşunun güzel bir rengi var seçiçi renk değişmiş</p>
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.25 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.25 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.25">
+                                <img src="aşure 0.25 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.25 - 2">
+                            </div>
+                            <p>evet şu iki maymun gitmiş(iyiki) gruplar yuşu çalışmayan kategoriler tuşu var renkler değişmiş</p>
+                        </div>
+                        <hr style="border: 1px solid black;" />
+
+                        <!-- 0.30 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 0.30 .png" onclick="arsivModalAc(this.src)" alt="Aşure 0.30">
+                                <img src="aşure 0.30 2.png" onclick="arsivModalAc(this.src)" alt="Aşure 0.30 - 2">
+                            </div>
+                            <p> Yani pek bir değişiklik yok sadece kategoriler ve bazı hatalar düzelir ve sürüm ayarların üst ortasına koyulur </p>
+                        </div>
+                                            <hr style="border: 1px solid black;" />
+
+                        <!-- 1.0 Sürümü -->
+                        <div class="arsiv-oge">
+                            <div class="yan-yana-kapsayici">
+                                <img src="aşure 1.0 .png" style="flex:1; min-width:0;" onclick="arsivModalAc(this.src)" alt="Aşure 1.0">
+                                <img src="aşure 1.0 2.png" style="flex:1; min-width:0;" onclick="arsivModalAc(this.src)" alt="Aşure 1.0 - 2">
+                                <img src="aşure 1.0 3.png" style="flex:1; min-width:0;" onclick="arsivModalAc(this.src)" alt="Aşure 1.0 - 3">
+                            </div>
+                            <p>EVET sonunda aşurenin şuanda en iyi sürümü gruplara sohbet edebiliriz grup oluşturabiliriz arşiv eklenmiş kurallar kategoriler çalışıyor oyun var haberler tuşu anı ve isteklerde yazıp beğenebilir yanıt ve şikayet edebiliriz renkler değişmiş arama çubuğu düzgün çalışır yani 10 numara 5 yıldız </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="akordeon-btn btn-yesil" onclick="akordeonAcKapa('yapimcilarSekmesi')">
+                    <span id="lbl-yapimcilar">YAPIMCILAR</span> ▾
+                </button>
+                <div id="yapimcilarSekmesi" class="akordeon-icerik">
+                    <center style="padding: 5px;">
+                        <img src="jefo.jpg" width="80" height="80" style="border-radius: 50%; margin: 2px;" alt="Jefo">
+                        <img src="nyoko.png" width="80" height="80" style="border-radius: 50%; margin: 2px;" alt="Nyoko">
+                        <p class="cat" style="margin: 3px 0 0 0;">
+                            <tt id="lbl-taner" style="font-weight: bold; color: #333; font-size: 12px;">jefo ve nyoko</tt>
+                        </p>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 15px; border: 1px solid black;" />
+    </div>
+
+    <!-- Ana Sayfa İçeriği -->
+    <center>
+        <div class="arama-kapsayici">
+            <input id="inp-arama" class="su" type="text" placeholder="arama yapın" oninput="aramaYap(this.value)" onclick="aramaSekmesiAc()" onfocus="aramaSekmesiAc()">
+            <div id="aramaSonucSekmesi" class="arama-sonuc-sekme">
+                <p id="lbl-arama-sonuc">hiçbir sonuç bulunamadı</p>
+            </div>
+        </div>
+        <br><br>
+        <img src="aşure.png" width="250" height="250" alt="Aşure Logo">
+    </center>
+    <hr style="border: 1px solid black;" />
+
+    <!-- Sol Butonlar -->
+    <div class="sol-butonlar-alani">
+        <div class="butonlar-ust-kapsayici">
+            <button type="button" class="grup-btn" onclick="document.getElementById('gruplarPaneli').classList.add('aktif')">👥 Gruplar / Groups</button>
+            <button type="button" class="oyunlar-ana-btn" onclick="akordeonAcKapa('oyunlarSekmeAlani')">Oyunlar</button>
+        </div>
+
+        <div id="oyunlarSekmeAlani" class="oyunlar-acilir-sekme">
+            <div id="oyun-secim-ekrani">
+                <p style="font-weight: bold; color: #333; margin-top: 0;">Oynamak istediğin oyunu seç:</p>
+                <button class="oyun-secenek-btn" onclick="oyunuBaslat(2)">The Dark House (Korku Oyunu)</button>
+            </div>
+        </div>
+
+        <!-- Kategoriler ve Yanındaki Siyah Haberler Butonu -->
+        <div style="display: flex; gap: 8px; width: 100%; margin-top: 5px;">
+            <button type="button" class="kategoriler-btn" onclick="document.getElementById('kategorilerPaneli').classList.toggle('aktif')" style="flex: 1; margin-top: 0;">📁 kategoriler/catalogs</button>
+            <button type="button" id="btn-haberler" onclick="haberlerSekmesiAcKapa()" style="background: #000000; color: white; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: opacity 0.2s;">Haberler</button>
+        </div>
+
+        <div id="kategorilerPaneli" class="kategoriler-sekme">
+            <button type="button" id="btn-istedikleriniz" class="istedikleriniz-btn" onclick="kategoriDegistir('istedikleriniz')">istedikleriniz/giriş</button>
+        </div>
+
+        <!-- Haberler İçin Orta Boyutta Açılan Animasyonlu Beyaz Sekme -->
+        <div id="haberlerSekmesi" class="haberler-acilir-sekme">
+            <h4 style="margin: 0 0 8px 0; color: #000; font-size: 13px; border-bottom: 1px solid #eee; padding-bottom: 4px;">📢 Yaklaşan Güncellemeler</h4>
+            <p style="margin: 0; font-size: 12px; color: #555;">İlerleyen zamanlarda gelecek güncellemeler ve yenilikler burada duyurulacaktır...</p>
+        </div>
+    </div>
+
+    <!-- Oyun Alanı -->
+    <div id="oyun-oynama-alani" style="display: none;">
+        <button class="geri-don-btn" onclick="oyundanDon()">-> Oyun Seçimine Dön</button>
+        <div id="ikinci-oyun-wrapper">
+            <div id="menu-screen" style="position:relative; width:100%; height:auto; background:none; display:flex; flex-direction:column; align-items:center;">
+                <h1 style="color: #ff3333; font-size: 18px; margin-bottom: 10px;">THE DARK HOUSE</h1>
+                <select id="difficulty-select">
+                    <option value="easy">EASY</option>
+                    <option value="normal" selected>NORMAL</option>
+                    <option value="hard">HARD</option>
+                </select>
+                <button class="menu-btn" id="main-start-btn">START GAME</button>
+            </div>
+
+            <div id="game-container" style="display: none; width: 100%; flex-direction: column; align-items: center; justify-content: center; margin-top: 5px;">
+                <div id="ui-layer">
+                    <div>LIVES: <span id="ui-lives">3</span> | <span id="ui-floor">FLOOR 1</span></div>
+                    <div>KEYS: <span id="ui-items">0/2</span></div>
+                </div>
+                <canvas id="gameCanvas" width="320" height="320"></canvas>
+                <div class="controls-layer">
+                    <div id="joystick-zone"><div id="joystick-stick"></div></div>
+                    <div class="actions-zone">
+                        <button class="btn-action" id="btn-stairs">STAIRS</button>
+                        <button class="btn-action" id="btn-search">SEARCH</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gruplar Paneli -->
+    <div id="gruplarPaneli" class="gruprlar-paneli-sol">
+        <button type="button" class="kapat-btn" onclick="document.getElementById('gruplarPaneli').classList.remove('aktif')">×</button>
+        <div class="renk-baslik" style="color:red">GRUPLAR / GROUPS</div>
+        <hr style="border: 1px solid black;" />
+        <button type="button" class="grup-olustur-btn" onclick="grupFormuAcKapa()">Grubunuzu Oluşturun</button>
+        
+        <div id="grupFormuSekmesi" class="grup-form-sekme">
+            <div class="grup-form-icerik">
+                <input type="text" id="grupAdiInp" placeholder="Grup Adı" class="grup-input">
+                <input type="number" id="grupKisiInp" placeholder="Kişi Sayısı (Örn: 5, 10, 20)" class="grup-input">
+                <textarea id="grupAmacInp" placeholder="Grubun Amacı nedir?" class="grup-textarea"></textarea>
+                <button type="button" class="grup-bitti-btn" onclick="grupOlusturBitti()">Bitti</button>
+            </div>
+        </div>
+        <hr style="border: 1px solid black;" />
+        <div id="gruplarListesi"></div>
+    </div>
+
+    <h2 id="lbl-aciklama-baslik" style="color:#B9D62B; text-decoration: underline; font-weight: bold; text-align: center;">AÇIKLAMA</h2>
+    <p id="lbl-aciklama-metin" class="silgi">Merhaba, bu sitede<b><u>YAKINDAN</u></b>ilginizi çekecek bir sürü kategoriler olacak.Kategorilerin içinde arkadaşlar edinebileceğiniz bir sürü gruplar olacak.kısa videolar,uzun videolar,canlı yayınlar,hikaye,not ve müzik paylaşabileceğiniz eğlenceli vakit geçireceksiniz bu arada ırkçılık yapmayalım bir arkadaş varda:) neyse görüşürüz by 😛😛</p>
+    <hr style="border: 1px solid black;" />
+
+    <h3 id="lbl-hikaye-baslik" style="text-align: center;"><b>ANI VEYA HİKAYE</b></h3>
+    <center>
+        <input id="inp-hikaye" class="saat" type="text" placeholder="hikayenizi veya anınızı yazınız">
+    </center>
+    <hr style="border: 1px solid black;" />
+
+    <center>
+        <p id="lbl-hikaye-ok" style="color:darkgreen;">şu an hikaye veya anı yok</p>
+    </center>
+
+    <div id="hikayelerListesi" style="text-align: left; padding: 0 10px;"></div>
+
+    <!-- Resim Modalı -->
+    <div id="arsivModal" class="arsiv-modal-arkaplan">
+        <div class="arsiv-modal-icerik">
+            <button type="button" class="arsiv-kapat-buton" onclick="arsivModalKapat()">×</button>
+            <div class="arsiv-modal-resim-alan">
+                <img id="modalResim" src="" alt="Büyük Arşiv Resmi">
+            </div>
+            <div class="arsiv-modal-kontrol">
+                <button type="button" onclick="modalZoom(0.3)">🔍 +</button>
+                <button type="button" onclick="modalZoom(-0.3)">🔍 -</button>
+                <button type="button" onclick="modalSifirla()">Sıfırla</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+          
