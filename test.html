@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<body style="font-family:sans-serif;padding:16px;max-width:420px">
+<h3>Giriş testi</h3>
+<input id="n" placeholder="takma ad" style="width:100%;padding:10px;margin:6px 0">
+<input id="p" placeholder="şifre" style="width:100%;padding:10px;margin:6px 0">
+<button id="b1" style="padding:10px">Giriş yap</button>
+<button id="b2" style="padding:10px">Hesap oluştur</button>
+<pre id="o" style="white-space:pre-wrap;background:#eee;padding:10px;margin-top:12px">Sonuç burada görünecek</pre>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+const auth=getAuth(initializeApp({apiKey:"AIzaSyCLN1h8gJbxgq8e5VpOHep3NKlmWmMXEbE",authDomain:"asure-f9093.firebaseapp.com",projectId:"asure-f9093",appId:"1:949621118268:web:9417f8c18e409c24b27a39"}));
+const o=document.getElementById("o");
+const mail=()=>document.getElementById("n").value.trim().toLowerCase()+"@asure.users";
+async function dene(fn){
+  const m=mail();o.textContent="Deneniyor: "+m+" ...";
+  try{const c=await fn(auth,m,document.getElementById("p").value);o.textContent="BAŞARILI\nE-posta: "+m+"\nUID: "+c.user.uid}
+  catch(e){o.textContent="HATA\nE-posta: "+m+"\nKod: "+e.code+"\n"+e.message}
+}
+document.getElementById("b1").onclick=()=>dene(signInWithEmailAndPassword);
+document.getElementById("b2").onclick=()=>dene(createUserWithEmailAndPassword);
+  </script>
